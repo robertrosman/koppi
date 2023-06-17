@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Notes;
+namespace Koppi;
 
 [Application]
 public class MainApplication : MauiApplication

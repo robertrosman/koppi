@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 
-namespace Notes.ViewModels;
+namespace Koppi.ViewModels;
 
 internal class AboutViewModel
 {

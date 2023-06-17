@@ -1,14 +1,14 @@
-﻿namespace Notes.Models;
+﻿namespace Koppi.Models;
 
-internal class Note
+internal class Clip
 {
     public string Filename { get; set; }
     public string Text { get; set; }
     public DateTime Date { get; set; }
 
-    public Note()
+    public Clip()
     {
-        Filename = $"{Path.GetRandomFileName()}.notes.txt";
+        Filename = $"{Path.GetRandomFileName()}.Koppi.txt";
         Date = DateTime.Now;
         Text = "";
     }
@@ -19,7 +19,7 @@ internal class Note
     public void Delete() =>
         File.Delete(System.IO.Path.Combine(FileSystem.AppDataDirectory, Filename));
 
-    public static Note Load(string filename)
+    public static Clip Load(string filename)
     {
         filename = System.IO.Path.Combine(FileSystem.AppDataDirectory, filename);
 
@@ -35,19 +35,19 @@ internal class Note
             };
     }
 
-    public static IEnumerable<Note> LoadAll()
+    public static IEnumerable<Clip> LoadAll()
     {
         // Get the folder where the notes are stored.
         string appDataPath = FileSystem.AppDataDirectory;
 
-        // Use Linq extensions to load the *.notes.txt files.
+        // Use Linq extensions to load the *.Koppi.txt files.
         return Directory
 
                 // Select the file names from the directory
-                .EnumerateFiles(appDataPath, "*.notes.txt")
+                .EnumerateFiles(appDataPath, "*.Koppi.txt")
 
                 // Each file name is used to load a note
-                .Select(filename => Note.Load(Path.GetFileName(filename)))
+                .Select(filename => Clip.Load(Path.GetFileName(filename)))
 
                 // With the final collection of notes, order them by date
                 .OrderByDescending(note => note.Date);

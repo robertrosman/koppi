@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Notes;
+namespace Koppi;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

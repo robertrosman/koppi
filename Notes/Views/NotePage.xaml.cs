@@ -1,4 +1,4 @@
-namespace Notes.Views;
+namespace Koppi.Views;
 
 public partial class NotePage : ContentPage
 {

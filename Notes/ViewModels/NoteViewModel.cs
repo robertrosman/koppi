@@ -2,11 +2,11 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 
-namespace Notes.ViewModels;
+namespace Koppi.ViewModels;
 
 internal class NoteViewModel : ObservableObject, IQueryAttributable
 {
-    private Models.Note _note;
+    private Models.Clip _note;
 
     public string Text
     {
@@ -30,12 +30,12 @@ internal class NoteViewModel : ObservableObject, IQueryAttributable
 
     public NoteViewModel()
     {
-        _note = new Models.Note();
+        _note = new Models.Clip();
         SaveCommand = new AsyncRelayCommand(Save);
         DeleteCommand = new AsyncRelayCommand(Delete);
     }
 
-    public NoteViewModel(Models.Note note)
+    public NoteViewModel(Models.Clip note)
     {
         _note = note;
         SaveCommand = new AsyncRelayCommand(Save);
@@ -59,14 +59,14 @@ internal class NoteViewModel : ObservableObject, IQueryAttributable
     {
         if (query.ContainsKey("load"))
         {
-            _note = Models.Note.Load(query["load"].ToString());
+            _note = Models.Clip.Load(query["load"].ToString());
             RefreshProperties();
         }
     }
 
     public void Reload()
     {
-        _note = Models.Note.Load(_note.Filename);
+        _note = Models.Clip.Load(_note.Filename);
         RefreshProperties();
     }
 

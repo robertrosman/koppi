@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace Koppi.ViewModels;
+namespace Notes.ViewModels;
 
 internal class NotesViewModel : IQueryAttributable
 {
@@ -12,7 +12,7 @@ internal class NotesViewModel : IQueryAttributable
 
     public NotesViewModel()
     {
-        AllNotes = new ObservableCollection<ViewModels.NoteViewModel>(Models.Clip.LoadAll().Select(n => new NoteViewModel(n)));
+        AllNotes = new ObservableCollection<ViewModels.NoteViewModel>(Models.Note.LoadAll().Select(n => new NoteViewModel(n)));
         NewCommand = new AsyncRelayCommand(NewNoteAsync);
         SelectNoteCommand = new AsyncRelayCommand<ViewModels.NoteViewModel>(SelectNoteAsync);
     }
@@ -56,7 +56,7 @@ internal class NotesViewModel : IQueryAttributable
 
             // If note isn't found, it's new; add it.
             else
-                AllNotes.Insert(0, new NoteViewModel(Models.Clip.Load(noteId)));
+                AllNotes.Insert(0, new NoteViewModel(Models.Note.Load(noteId)));
         }
     }
 

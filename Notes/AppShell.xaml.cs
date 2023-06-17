@@ -1,4 +1,4 @@
-﻿namespace Notes;
+﻿namespace Koppi;
 
 public partial class AppShell : Shell
 {
