@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Koppi.ViewModels;
 
-internal class NoteViewModel : ObservableObject, IQueryAttributable
+internal class ClipViewModel : ObservableObject, IQueryAttributable
 {
     private Models.Clip _note;
 
@@ -28,14 +28,14 @@ internal class NoteViewModel : ObservableObject, IQueryAttributable
     public ICommand SaveCommand { get; private set; }
     public ICommand DeleteCommand { get; private set; }
 
-    public NoteViewModel()
+    public ClipViewModel()
     {
         _note = new Models.Clip();
         SaveCommand = new AsyncRelayCommand(Save);
         DeleteCommand = new AsyncRelayCommand(Delete);
     }
 
-    public NoteViewModel(Models.Clip note)
+    public ClipViewModel(Models.Clip note)
     {
         _note = note;
         SaveCommand = new AsyncRelayCommand(Save);

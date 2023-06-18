@@ -1,11 +1,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Notes.ViewModels"
-             x:Class="Notes.Views.AllNotesPage"
-             Title="Your Notes"
+             xmlns:viewModels="clr-namespace:Koppi.ViewModels"
+             x:Class="Koppi.Views.HistoryPage"
+             Title="History"
              NavigatedTo="ContentPage_NavigatedTo">
     <ContentPage.BindingContext>
-        <viewModels:NotesViewModel />
+        <viewModels:HistoryViewModel />
     </ContentPage.BindingContext>
 
     <!-- Add an item to the toolbar -->

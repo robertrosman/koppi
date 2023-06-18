@@ -1,8 +1,8 @@
 namespace Koppi.Views;
 
-public partial class NotePage : ContentPage
+public partial class ClipPage : ContentPage
 {
-    public NotePage()
+    public ClipPage()
     {
         InitializeComponent();
     }

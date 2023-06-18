@@ -1,10 +1,10 @@
-﻿namespace Koppi
+﻿namespace Koppi;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Routing.RegisterRoute(nameof(Views.ClipPage), typeof(Views.ClipPage));
     }
 }

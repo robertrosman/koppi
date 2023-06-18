@@ -1,12 +1,11 @@
-﻿namespace Koppi
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+﻿namespace Koppi;
 
-            MainPage = new AppShell();
-        }
-    }
+public partial class App : Application
+{
+	public App()
+	{
+		InitializeComponent();
+
+		MainPage = new AppShell();
+	}
 }

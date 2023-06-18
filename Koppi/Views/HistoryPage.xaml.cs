@@ -1,8 +1,8 @@
-namespace Notes.Views;
+namespace Koppi.Views;
 
-public partial class AllNotesPage : ContentPage
+public partial class HistoryPage : ContentPage
 {
-    public AllNotesPage()
+    public HistoryPage()
     {
         InitializeComponent();
     }
