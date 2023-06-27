@@ -1,9 +1,12 @@
+using Koppi.ViewModels;
+
 namespace Koppi.Views;
 
 public partial class HistoryPage : ContentPage
 {
-    public HistoryPage()
+    public HistoryPage(HistoryViewModel historyViewModel)
     {
+        BindingContext = historyViewModel;
         InitializeComponent();
     }
 

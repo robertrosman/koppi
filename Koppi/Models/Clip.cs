@@ -1,6 +1,6 @@
 ﻿namespace Koppi.Models;
 
-internal class Clip
+public class Clip
 {
     public string Filename { get; set; }
     public string Text { get; set; }

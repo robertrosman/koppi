@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Koppi.Models;
+using Koppi.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace Koppi;
 
@@ -14,6 +16,10 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+        builder.Services
+            .AddSingleton<ClipStore>()
+            .AddSingleton<HistoryViewModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();

@@ -4,9 +4,6 @@
              x:Class="Koppi.Views.HistoryPage"
              Title="History"
              NavigatedTo="ContentPage_NavigatedTo">
-    <ContentPage.BindingContext>
-        <viewModels:HistoryViewModel />
-    </ContentPage.BindingContext>
 
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>

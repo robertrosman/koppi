@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace Koppi.ViewModels;
 
-internal class AboutViewModel
+public class AboutViewModel
 {
     public string Title => AppInfo.Name;
     public string Version => AppInfo.VersionString;

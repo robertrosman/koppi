@@ -4,69 +4,69 @@ using System.Windows.Input;
 
 namespace Koppi.ViewModels;
 
-internal class ClipViewModel : ObservableObject, IQueryAttributable
+public class ClipViewModel : ObservableObject, IQueryAttributable
 {
-    private Models.Clip _note;
+    private Models.Clip _clip;
 
     public string Text
     {
-        get => _note.Text;
+        get => _clip.Text;
         set
         {
-            if (_note.Text != value)
+            if (_clip.Text != value)
             {
-                _note.Text = value;
+                _clip.Text = value;
                 OnPropertyChanged();
             }
         }
     }
 
-    public DateTime Date => _note.Date;
+    public DateTime Date => _clip.Date;
 
-    public string Identifier => _note.Filename;
+    public string Identifier => _clip.Filename;
 
     public ICommand SaveCommand { get; private set; }
     public ICommand DeleteCommand { get; private set; }
 
     public ClipViewModel()
     {
-        _note = new Models.Clip();
+        _clip = new Models.Clip();
         SaveCommand = new AsyncRelayCommand(Save);
         DeleteCommand = new AsyncRelayCommand(Delete);
     }
 
     public ClipViewModel(Models.Clip note)
     {
-        _note = note;
+        _clip = note;
         SaveCommand = new AsyncRelayCommand(Save);
         DeleteCommand = new AsyncRelayCommand(Delete);
     }
 
     private async Task Save()
     {
-        _note.Date = DateTime.Now;
-        _note.Save();
-        await Shell.Current.GoToAsync($"..?saved={_note.Filename}");
+        _clip.Date = DateTime.Now;
+        _clip.Save();
+        await Shell.Current.GoToAsync($"..?saved={_clip.Filename}");
     }
 
     private async Task Delete()
     {
-        _note.Delete();
-        await Shell.Current.GoToAsync($"..?deleted={_note.Filename}");
+        _clip.Delete();
+        await Shell.Current.GoToAsync($"..?deleted={_clip.Filename}");
     }
 
     void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
     {
         if (query.ContainsKey("load"))
         {
-            _note = Models.Clip.Load(query["load"].ToString());
+            _clip = Models.Clip.Load(query["load"].ToString());
             RefreshProperties();
         }
     }
 
     public void Reload()
     {
-        _note = Models.Clip.Load(_note.Filename);
+        _clip = Models.Clip.Load(_clip.Filename);
         RefreshProperties();
     }
 
